@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Header from "./components/Header";
+import RouteSwitch from "./components/RouteSwitch";
+import HomePage from "./components/HomePage";
+import ShopPage from "./components/ShopPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Modal from "./components/Modal";
+import css from "./styles/App.css";
 function App() {
+  const [total, setTotal] = useState(0);
+  const [modal, setModal] = useState(false);
+
+  const [items, setItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={css}>
+      <BrowserRouter>
+        <Header total={total} setTotal={setTotal} setModal={setModal} modal={modal} />
+        {modal ? <Modal setModal={setModal} modal={modal} /> : <div />}
+
+        <Routes>
+          <Route path="/" element={<HomePage setModal={setModal} />} />
+          <Route
+            path="/shop"
+            element={
+              <ShopPage total={total} setTotal={setTotal} setModal={setModal} />
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
