@@ -11,6 +11,7 @@
 .cart {
     border-radius: 5px;
     height: 70vh;
+    min-width: 40%;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -20,7 +21,6 @@
     word-wrap: break-word;
     padding: 10px;
     flex-wrap: wrap;
-    min-width: auto;
 }
 
 .carttitle {
