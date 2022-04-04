@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import uniqid from "uniqid";
 const ShopPage = (props) => {
-  const [items, setItems] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
+  const {items, setItems} = props;
+  const {cartItems, setCartItems} = props;
   const { total, setTotal } = props;
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const ShopPage = (props) => {
     setItems(list);
   };
 
-  const addToCart = (id, price) => {
+  const addToCart = (id, price, title, image) => {
     let check = 1;
     for (let item of cartItems) {
       if (item.id === id) {
@@ -37,7 +37,7 @@ const ShopPage = (props) => {
       }
     }
     if (check) {
-      setCartItems([...cartItems, { id: id, count: 1 , price: price}]);
+      setCartItems([...cartItems, { id: id, count: 1 , price: price, title: title, image: image}]);
     }
   };
 
@@ -51,7 +51,7 @@ const ShopPage = (props) => {
             <div>${item.price}</div>
             <button
               onClick={() => {
-                addToCart(item.id, item.price);
+                addToCart(item.id, item.price, item.title, item.image);
               }}
             >
               Add to cart

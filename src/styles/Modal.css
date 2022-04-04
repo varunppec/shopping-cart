@@ -10,7 +10,7 @@
 
 .cart {
     height: 70%;
-    width: 50%;
+    min-width: 40%;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -54,3 +54,59 @@
 #close:hover {
     background-color: rgba(252, 89, 89, 1);
 }
+
+.items > img {
+    height: 80px;
+    width: 80px;
+
+}
+.items {
+    display: flex;
+}
+
+.itemtitle {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.count {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.count > button {
+    height: 25px;
+    width: 25px;
+    border: none;
+    font-weight: bold;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    gap: 10px
+}
+
+.itemholder {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.total {
+    font-weight: bold;
+    font-size: 20px;
+}
+

@@ -9,23 +9,50 @@ import css from "./styles/App.css";
 function App() {
   const [total, setTotal] = useState(0);
   const [modal, setModal] = useState(false);
-
   const [items, setItems] = useState([]);
   const [cartItems, setCartItems] = useState([]);
 
   return (
     <div className="App" style={css}>
       <BrowserRouter>
-        <Header total={total} setTotal={setTotal} setModal={setModal} modal={modal} />
-        {modal ? <Modal setModal={setModal} modal={modal} /> : <div />}
+        <Header
+          total={total}
+          setTotal={setTotal}
+          setModal={setModal}
+          modal={modal}
+        />
+        {modal ? (
+          <Modal
+            setModal={setModal}
+            modal={modal}
+            cartItems={cartItems}
+            setCartItems={setCartItems}
+            items={items}
+            setItems={setItems}
+          />
+        ) : (
+          <div />
+        )}
 
         <Routes>
-          <Route path="/" element={<HomePage setModal={setModal} />} />
           <Route
             path="/shop"
             element={
-              <ShopPage total={total} setTotal={setTotal} setModal={setModal} />
+              <ShopPage
+                total={total}
+                setTotal={setTotal}
+                setModal={setModal}
+                cartItems={cartItems}
+                setCartItems={setCartItems}
+                items={items}
+                setItems={setItems}
+              />
             }
+          />
+
+          <Route
+            path="/"
+            element={<HomePage setModal={setModal} setTotal={setTotal} cartItems={cartItems}  />}
           />
         </Routes>
       </BrowserRouter>
