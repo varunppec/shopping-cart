@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import uniqid from "uniqid";
+import style from "../styles/ShopPage.css";
 const ShopPage = (props) => {
-  const {items, setItems} = props;
-  const {cartItems, setCartItems} = props;
+  const { items, setItems } = props;
+  const { cartItems, setCartItems } = props;
   const { total, setTotal } = props;
 
   useEffect(() => {
@@ -37,25 +38,32 @@ const ShopPage = (props) => {
       }
     }
     if (check) {
-      setCartItems([...cartItems, { id: id, count: 1 , price: price, title: title, image: image}]);
+      setCartItems([
+        ...cartItems,
+        { id: id, count: 1, price: price, title: title, image: image },
+      ]);
     }
   };
 
   return (
-    <div>
+    <div style={style} className="cardholder">
       {items.map((item) => {
         return (
-          <div key={uniqid()}>
-            <img src={item.image} height="100px" alt={item.id}></img>
-            <div>{item.title}</div>
-            <div>${item.price}</div>
-            <button
-              onClick={() => {
-                addToCart(item.id, item.price, item.title, item.image);
-              }}
-            >
-              Add to cart
-            </button>
+          <div key={uniqid()} className="card">
+            <img src={item.image} alt={item.id}></img>
+            <div className="itemshoptitle">{item.title}</div>
+            <div className="shopdetailsholder">
+              <div className="iteminfo">
+                <div className="shopprice">${item.price}</div>
+                <button
+                  onClick={() => {
+                    addToCart(item.id, item.price, item.title, item.image);
+                  }}
+                >
+                  Add to cart
+                </button>
+              </div>
+            </div>
           </div>
         );
       })}

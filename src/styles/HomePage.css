@@ -1,0 +1,42 @@
+.holder {
+    height: 100%;
+    background-image: url("../image.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homemodal {
+    height: 80%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    gap: 20px;
+}
+
+.review {
+    font-size: 30px;
+    color: rgba(255, 255, 255, 1);
+}
+
+.motto {
+    font-size: 50px;
+    color: black;
+}
+
+#shopnow {
+    min-width: 250px;
+    min-height: 70px;
+    border-radius: 100px;
+    border: none;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.753);
+    color: white;
+}
