@@ -22,6 +22,9 @@ nav > * {
     align-items: center;
     font-size: 30px;
 }
+.head > h1 {
+    cursor: pointer;
+}
 
 .links {
     display: flex;
@@ -54,6 +57,10 @@ a {
 
 .cartcontainer {
     position: relative;
+    cursor: pointer;
+}
+.cartcontainer > img {
+    cursor: pointer;
 }
 
 .cartcontainer:hover {

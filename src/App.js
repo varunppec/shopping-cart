@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div className="App" style={css}>
-      <BrowserRouter>
+      <BrowserRouter basename="shopping-cart">
         <Header
           total={total}
           setTotal={setTotal}

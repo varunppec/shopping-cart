@@ -19,9 +19,10 @@ const ShopPage = (props) => {
 
   const fetchItems = async () => {
     const data = await fetch(
-      "https://fakestoreapi.com/products/category/men's clothing?limit=3"
+      "https://fakestoreapi.com/products/category/men's clothing"
     );
     const list = await data.json();
+    console.log(list);
     setItems(list);
   };
 
